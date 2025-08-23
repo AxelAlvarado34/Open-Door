@@ -1,0 +1,32 @@
+.add_content {
+    display: flex;
+    height: 100vh;
+}
+
+.add_form_content {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add_map_content {
+        width: 50%;
+        height: 100vh;
+    background-color: rgb(34, 34, 34);
+}
+
+@media (width <= 745px) {
+    .add_content{
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .add_form_content{
+        width: 100%;
+    }
+
+    .add_map_content{
+        width: 100%;
+    }
+}

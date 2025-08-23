@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.user_layout {
+  display: flex;
+  width: 100%;
+  font-family: Manrope, sans-serif;
+}
+
+.user_carrousel {
+  color: white;
+  background: linear-gradient(90deg, #000000, #323131);
+  padding: 30px;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.user_content {
+  width: 50%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_img_bg {
+  width: 50%;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.text_info {
+  margin-bottom: 20px;
+}
+
+.info_carr_title {
+  font-size: 30px;
+  font-weight: 700;
+  width: 80%;
+  line-height: 35px;
+}
+
+.info_carr_sub_title {
+  margin: 10px 0;
+  width: 80%;
+}
+
+.info_icons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info_div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon_content {
+  background-color: #434242;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.icon_log {
+  font-size: 20px;
+}
+
+.icon_title {
+  font-weight: bold;
+}
+
+
+@media (width <=1200px) {
+
+  .user_carrousel {
+    width: 100%;
+  }
+
+  .user_content {
+    width: 100%;
+  }
+}
+
+@media (width <=840px) {
+  .user_layout {
+    flex-direction: column;
+  }
+
+  .user_img_bg {
+    object-fit: contain;
+    margin-top: -150px;
+  }
+
+  .user_carrousel {
+    padding: 70px;
+    justify-content: start;
+  }
+}
+
+@media (width <=600px) {
+  .info_carr_title {
+    width: 90%;
+  }
+
+  .user_carrousel {
+    padding: 30px;
+    height: 100%;
+  }
+
+  .icon_paragraph {
+    font-size: 15px;
+  }
+}
+
+@media (width <=400px) {
+  .info_carr_title {
+    width: 90%;
+    font-size: 25px;
+  }
+
+  .info_carr_sub_title {
+    font-size: 14px;
+  }
+
+  .icon_paragraph {
+    font-size: 14px;
+  }
+}

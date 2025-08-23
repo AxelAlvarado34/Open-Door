@@ -1,0 +1,156 @@
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.register-container {
+  width: 66.6667%;
+  padding: 12px;
+  animation: fadeLeft 1.5s ease forwards;
+  margin: 0 auto;
+}
+
+.register-form {
+  width: 100%;
+  padding: 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.register-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.register-logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+.register-logo-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+  font-family: 'Manrope', sans-serif;
+}
+
+.register-welcome-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 12px 0 0 0;
+  font-family: 'Manrope', sans-serif;
+}
+
+.register-welcome-subtext {
+  font-size: 0.875rem;
+  margin-top: 20px;
+  font-family: 'Manrope', sans-serif;
+  color: #333;
+}
+
+.register-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-input-field {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-family: 'Manrope', sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.register-input-field:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.register-terms-text {
+  color: #111;
+  font-weight: 700;
+  display: block;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.register-terms-text:hover {
+  text-decoration: underline;
+}
+
+.register-btn-submit {
+  width: 100%;
+  padding: 12px 0;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #000000, #484848);
+  transition: background 0.3s ease;
+}
+
+.register-signup-text {
+  font-size: 0.875rem;
+  text-align: center;
+  font-weight: 700;
+  color: #999999;
+  font-family: 'Manrope', sans-serif;
+}
+
+.register-signup-link {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .register-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 840px) {
+  .register-container {
+    width: 66.666%;
+  }
+}
+
+@media (max-width: 700px) {
+  .register-container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 500px) {
+  .register-container {
+    width: 100%;
+  }
+
+  .register-logo-section {
+    justify-content: center;
+  }
+
+  .register-header {
+    text-align: center;
+  }
+}

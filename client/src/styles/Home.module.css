@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+.home_page {
+    padding: 0 30px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.banner {
+    width: 60%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #000000, #484848);
+    margin-top: 50px;
+    border-radius: 50px;
+}
+
+.banner_text {
+    padding: 0 50px;
+    width: 90%;
+    color: white;
+}
+
+.banner_title {
+    font-size: 40px;
+    line-height: 47px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.banner_description {
+    font-size: 14px;
+    color: #bdbdbd;
+}
+
+.banner_image {
+    width: 100%;
+}
+
+.banner_house {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.double_home{
+    display: flex;
+    width: 60%;
+    gap: 30px;
+}
+
+.home_create {
+    background: linear-gradient(90deg, #000000, #484848);
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 50px;
+    color: white;
+    padding: 50px;
+}
+
+
+.create_title {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.create_des {
+    font-size: 14px;
+    color: #bdbdbd;
+    margin-bottom: 30px;
+}
+
+.btn_create {
+    width: 100%;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    transition: background 0.3s ease;
+}
+
+
+.publications_title{
+    margin: 50px 0;
+    margin-left: 20px;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.all_publications{
+    margin-bottom: 100px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+@media (width <= 1300px){
+    .banner_title{
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .banner_description{
+        font-size: 13px;
+    }
+    
+    .create_title{
+        font-size: 20px;
+    }
+    .create_des{
+        font-size: 13px;
+    }
+}
+
+@media (width <= 1225px){
+    .banner_title{
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .banner_description{
+        font-size: 13px;
+    }
+    
+    .create_title{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .create_des{
+        font-size: 13px;
+    }
+}
+
+@media (width <= 1150px){
+    .banner_title{
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .banner_description{
+        font-size: 13px;
+    }
+    
+    .create_title{
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .create_des{
+        font-size: 12px;
+    }
+}
+
+@media (width <= 1040px){
+    .banner_title{
+        font-size: 26px;
+        line-height: 35px;
+    }
+    .banner_description{
+        font-size: 13px;
+    }
+
+    .home_create{
+        padding: 40px;
+    }
+
+    .create_title{
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .create_des{
+        font-size: 12px;
+    }
+}
+
+@media (width <= 920px){
+    .banner_title{
+        font-size: 26px;
+        line-height: 35px;
+    }
+    .banner_description{
+        font-size: 12px;
+    }
+
+    .home_create{
+        padding: 40px;
+    }
+
+    .create_title{
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .create_des{
+        font-size: 12px;
+    }
+
+    .btn_create{
+        font-size: 12px;
+    }
+}
+
+@media (width <= 900px){
+    .banner{
+        width: 100%;
+    }
+    .double_home{
+        width: 100%;
+        gap: 10px;
+    }
+}
+
+@media (width <= 600px){
+    .home_page{
+        padding: 0 40px;
+    }
+    .banner{
+        width: 100%;
+        display: none;
+    }
+    .double_home{
+        width: 100%;
+        flex-direction: column;
+        gap: 0px;
+    }
+}

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+.property_card{
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    font-family: Manrope, sans-serif;
+    border-radius: 30px;
+    padding: 20px;
+    transition: all .5s;
+
+    &:hover{
+        transform: scale(1.01);
+    }
+}
+
+
+.card_src{  
+    height: 200px;
+    background-color: #aeaeae;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+.text_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head_title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.head_price{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.category{
+    margin-top: 5px;
+    color: #555555;
+}
+
+.card_icons{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.icon_div{
+    width: 100%;
+    font-size: 12px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F3F3F3;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.card_btn{
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    width: 100%;
+    background-color: black;
+    padding: 15px;
+}

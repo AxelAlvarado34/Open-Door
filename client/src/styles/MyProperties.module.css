@@ -1,0 +1,81 @@
+.my_section {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.info_sec_fade {
+    width: 40%;
+}
+
+.may_info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    padding: 50px;
+    background: linear-gradient(90deg, #000000, #484848);
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+.info_src {
+    background-color: #5f5f5f;
+    height: 200px;
+    border-radius: 30px;
+}
+
+.info_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.my_title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: -20px;
+}
+
+.my_des {
+    margin: 30px 0;
+    color: #bdbdbd;
+}
+
+.btn_create {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    transition: background 0.3s ease;
+}
+
+.prop_sec_fade {
+    width: 60%;
+}
+
+.my_properties {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    width: 100%;
+    height: 530px;
+    border: 1px dashed #333;
+    border-radius: 50px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
