@@ -140,7 +140,7 @@ export default function GeneralInfoForm({ address, setAddress }: GeneralInfoForm
                     accept="image/*"
                     onChange={(e) => {
                         if (e.target.files && e.target.files.length > 0) {
-                            setValue("image", e.target.files[0]); // 👈 aquí guardamos el File
+                            setValue("image", e.target.files[0]);
                         }
                     }}
                 />

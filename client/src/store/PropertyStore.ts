@@ -12,6 +12,7 @@ type PropertyStoreType = {
     getMyProperties: () => Promise<void>
     createPublication: (data: PropertyFormData) => Promise<void>
     deleteProperty: (id: PropertyType['id']) => Promise<void>
+    updateProperty: (id: PropertyType['id'], property: PropertyFormData, navigate: (path: string) => void) => Promise<void>
 }
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -102,6 +103,39 @@ export const propertyStore = create<PropertyStoreType>()(devtools((set) => ({
             console.log(error);
             notifyError('Error to delete property')
         }
+    },
+    updateProperty: async (id, property, navigate) => {
+        try {
+
+            await axios.put(`${baseURL}/property/edit-property/${id}`, property, {
+                withCredentials: true,
+            });
+
+            const updated: Partial<PropertyType> = {
+                title: property.title,
+                description: property.description,
+                location: property.location,
+                category: property.category as PropertyType['category'],
+                price: property.price,
+                bedroom: property.bedrooms,
+                bathroom: property.bathrooms,
+                parking: property.parking,
+                image: property.image,
+            };
+
+            set((state) => ({
+                properties: state.properties.map((p) => (p.id === id ? { ...p, ...updated } : p)),
+                myHouses: state.myHouses.map((p) => (p.id === id ? { ...p, ...updated } : p)),
+            }));
+
+            notifySucces("Property updated successfully");
+            navigate('/opendoor/my-properties')
+
+        } catch (error) {
+            console.error(error);
+            notifyError("Error updating property");
+        }
+
     }
 
 })))

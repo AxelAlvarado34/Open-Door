@@ -45,7 +45,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           <div className={style.actions_btn}>
             <PopUp property={property} />
             <ActionsBtn
-              id={property.id}
+              property={property}
             />
           </div>
         </div>

@@ -30,5 +30,6 @@ routerProperty.post(
 );
 
 routerProperty.delete('/delete-property/:id', checkAuth, PropertyController.deleteProperty)
+routerProperty.put('/edit-property/:id', checkAuth, PropertyController.editProperty)
 
 export default routerProperty;

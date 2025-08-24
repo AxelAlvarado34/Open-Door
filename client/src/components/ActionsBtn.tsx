@@ -6,14 +6,16 @@ import {
 } from '@heroicons/react/24/solid'
 import { propertyStore } from '../store/PropertyStore'
 import type { PropertyType } from '../types'
+import { useNavigate } from 'react-router-dom'
 
 type ActionsBtnProps = {
-  id: PropertyType['id']
+  property: PropertyType
 }
 
-export default function ActionsBtn({id} : ActionsBtnProps) {
+export default function ActionsBtn({ property }: ActionsBtnProps) {
 
   const deletProperty = propertyStore(state => state.deleteProperty);
+  const navigate = useNavigate();
 
   return (
     <div className="inline-block w-52 text-right">
@@ -29,7 +31,12 @@ export default function ActionsBtn({id} : ActionsBtnProps) {
           className="w-52 origin-top-right rounded-xl border border-gray-700 bg-gray-900 p-1 text-sm text-white shadow-lg transition duration-100 ease-out focus:outline-none data-closed:scale-95 data-closed:opacity-0"
         >
           <MenuItem>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-gray-700 focus:bg-gray-700">
+            <button
+              className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-gray-700 focus:bg-gray-700"
+              onClick={() =>
+                navigate(`/opendoor/edit-property/${property.id}`, { state: { property } })
+              }
+            >
               <PencilIcon className="size-4 text-white/50" />
               Edit
               <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-hover:inline">
@@ -43,8 +50,8 @@ export default function ActionsBtn({id} : ActionsBtnProps) {
           <MenuItem>
             <button
               className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-red-600 focus:bg-red-600"
-              onClick={()=> {
-                deletProperty(id)
+              onClick={() => {
+                deletProperty(property.id)
               }}
             >
               <TrashIcon className="size-4 text-red-400" />

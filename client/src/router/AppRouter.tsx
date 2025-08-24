@@ -18,6 +18,7 @@ import AddProperties from '../pages/AddProperties'
 import { userStore } from '../store/UserStore'
 import { useEffect } from 'react'
 import MyProperties from '../pages/MyProperties'
+import EditPropertyPage from '../pages/EditPropertyPage'
 
 export default function AppRouter() {
 
@@ -52,6 +53,7 @@ export default function AppRouter() {
           <Route path='home' element={<HomePage />} />
           <Route path='add-property' element={<AddProperties />} />
           <Route path='my-properties' element={<MyProperties />} />
+          <Route path="edit-property/:id" element={<EditPropertyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

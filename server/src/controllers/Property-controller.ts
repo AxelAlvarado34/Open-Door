@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Property from "../models/Property.model";
 import { AuthRequest } from "../middleware/CheckAuth";
+import cloudinary from "../config/cloudinary";
 
 export class PropertyController {
 
@@ -77,4 +78,27 @@ export class PropertyController {
             return res.status(500).json({ msg: "Server error" });
         }
     }
+    static editProperty = async (req: AuthRequest, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const property = await Property.findByPk(id);
+      if (!property) return res.status(404).json({ msg: "Property not found" });
+
+      if (property.userId !== req.user.id) return res.status(403).json({ msg: "Unauthorized" });
+
+      const updateData = { ...req.body };
+      if (req.file) {
+        const upload = await cloudinary.uploader.upload(req.file.path, { folder: "properties" });
+        updateData.image = upload.secure_url;
+      }
+
+      await property.update(updateData);
+
+      return res.json({ msg: "Property updated successfully", property });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ msg: "Server error" });
+    }
+  };
 }
