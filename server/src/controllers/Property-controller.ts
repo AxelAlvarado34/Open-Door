@@ -56,7 +56,25 @@ export class PropertyController {
         }
     }
 
-    static deleteProperty = async(req: AuthRequest, res: Response) => {
-        
+    static deleteProperty = async (req: AuthRequest, res: Response) => {
+        try {
+            const { id } = req.params;
+
+            const property = await Property.findByPk(id);
+            if (!property) {
+                return res.status(404).json({ msg: "Property not found" });
+            }
+
+            if (property.userId !== req.user.id) {
+                return res.status(403).json({ msg: "You are not authorized to delete this property" });
+            }
+
+            await property.destroy();
+            return res.json({ message: "Property deleted successfully" });
+
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ msg: "Server error" });
+        }
     }
 }

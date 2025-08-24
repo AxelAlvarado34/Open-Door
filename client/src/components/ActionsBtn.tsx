@@ -3,9 +3,18 @@ import {
   ChevronDownIcon,
   PencilIcon,
   TrashIcon,
-} from '@heroicons/react/24/solid' 
+} from '@heroicons/react/24/solid'
+import { propertyStore } from '../store/PropertyStore'
+import type { PropertyType } from '../types'
 
-export default function ActionsBtn() {
+type ActionsBtnProps = {
+  id: PropertyType['id']
+}
+
+export default function ActionsBtn({id} : ActionsBtnProps) {
+
+  const deletProperty = propertyStore(state => state.deleteProperty);
+
   return (
     <div className="inline-block w-52 text-right">
       <Menu>
@@ -28,11 +37,16 @@ export default function ActionsBtn() {
               </kbd>
             </button>
           </MenuItem>
-          
+
           <div className="my-1 h-px bg-gray-700" />
 
           <MenuItem>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-red-600 focus:bg-red-600">
+            <button
+              className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-red-600 focus:bg-red-600"
+              onClick={()=> {
+                deletProperty(id)
+              }}
+            >
               <TrashIcon className="size-4 text-red-400" />
               Delete
               <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-hover:inline">

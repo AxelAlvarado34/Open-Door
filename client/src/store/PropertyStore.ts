@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { MyPropertyData, PropertyFormData } from "../types";
+import type { MyPropertyData, PropertyFormData, PropertyType } from "../types";
 import { notifyError, notifySucces } from "../helpers/notifys";
 import axios from "axios";
 import { PropertiesArraySchema } from "../schemas/PropertySchema";
@@ -11,6 +11,7 @@ type PropertyStoreType = {
     getAllProperties: () => Promise<void>
     getMyProperties: () => Promise<void>
     createPublication: (data: PropertyFormData) => Promise<void>
+    deleteProperty: (id: PropertyType['id']) => Promise<void>
 }
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -29,7 +30,7 @@ export const propertyStore = create<PropertyStoreType>()(devtools((set) => ({
                 console.log(result.error);
                 return;
             }
-            
+
             set({ properties: result.data });
 
         } catch (error) {
@@ -83,5 +84,24 @@ export const propertyStore = create<PropertyStoreType>()(devtools((set) => ({
             console.error(error);
             notifyError("Error creating publication");
         }
+    },
+    deleteProperty: async (id) => {
+        try {
+
+            await axios.delete(`${baseURL}/property/delete-property/${id}`, {
+                withCredentials: true
+            });
+            set((state) => ({
+                properties: state.properties.filter((prop) => prop.id !== id),
+                myHouses: state.myHouses.filter((prop) => prop.id !== id),
+            }));
+
+            notifySucces('Property delete sucessfully')
+
+        } catch (error) {
+            console.log(error);
+            notifyError('Error to delete property')
+        }
     }
+
 })))

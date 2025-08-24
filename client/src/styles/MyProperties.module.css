@@ -91,12 +91,17 @@
 
     .my_properties{
         height: 650px;
+        justify-content: center;
     }
 }
 
 @media (width <= 870px) {
     .my_section{
         flex-direction: column;
+    }
+
+    .my_properties{
+        justify-content: center;
     }
 
     .info_sec_fade{
