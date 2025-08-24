@@ -65,12 +65,11 @@
 
 .my_properties {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     overflow-y: scroll;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 30px;
+    padding: 10px 30px;
     width: 100%;
     height: 530px;
     border: 1px dashed #333;
@@ -78,4 +77,33 @@
 
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+@media (width <= 1300px) {
+
+    .info_sec_fade{
+        width: 50%;
+    }
+
+    .prop_sec_fade{
+        width: 50%;
+    }
+
+    .my_properties{
+        height: 650px;
+    }
+}
+
+@media (width <= 870px) {
+    .my_section{
+        flex-direction: column;
+    }
+
+    .info_sec_fade{
+        width: 100%;
+    }
+
+    .prop_sec_fade{
+        width: 100%;
+    }
 }

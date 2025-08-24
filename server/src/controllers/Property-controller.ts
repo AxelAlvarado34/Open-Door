@@ -35,13 +35,15 @@ export class PropertyController {
 
     static createProperty = async (req: AuthRequest, res: Response) => {
         try {
+            const imageUrl = req.file ? (req.file as any).path : null;
             const property = await Property.create({
                 ...req.body,
                 price: Number(req.body.price),
                 bedroom: Number(req.body.bedroom),
                 bathroom: Number(req.body.bathroom),
                 parking: Number(req.body.parking),
-                userId: req.user.id
+                userId: req.user.id,
+                image: imageUrl,
             });
 
             res.json({ data: property });
@@ -52,5 +54,9 @@ export class PropertyController {
                 details: error.errors || null
             });
         }
+    }
+
+    static deleteProperty = async(req: AuthRequest, res: Response) => {
+        
     }
 }

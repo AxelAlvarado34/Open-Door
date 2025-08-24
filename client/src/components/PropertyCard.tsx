@@ -3,6 +3,8 @@ import style from '../styles/PropertyCard.module.css'
 import { MdOutlineBed } from "react-icons/md"
 import { PiBathtub } from "react-icons/pi"
 import { IoCarSportOutline } from "react-icons/io5"
+import PopUp from "./PopUp"
+import ActionsBtn from "./ActionsBtn"
 
 type PropertyCardProps = {
   property: PropertyType
@@ -12,7 +14,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <div className={style.property_card}>
       <div className={style.card_src}>
-
+        <img src={property.image} alt="" className={style.card_img} />
       </div>
 
       <div className={style.card_text}>
@@ -40,16 +42,9 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </div>
 
         <div>
-          <button className={style.card_btn}>
-            View Detail
-          </button>
           <div className={style.actions_btn}>
-            <button className={style.card_btn_edit}>
-              Edit
-            </button>
-            <button className={style.card_btn_delete}>
-              Delete
-            </button>
+            <PopUp property={property} />
+            <ActionsBtn/>
           </div>
         </div>
       </div>

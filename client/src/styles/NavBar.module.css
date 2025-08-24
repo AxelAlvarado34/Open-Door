@@ -100,7 +100,8 @@
 
 @media (max-width: 900px) {
   .nav_app_black {
-    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
     padding: 1rem 1rem;
     gap: 0.8rem;
   }
@@ -109,12 +110,6 @@
     flex-direction: column;
     gap: 0.6rem;
     align-items: center;
-  }
-
-  .nav_actions,
-  .nav_btn_section {
-    justify-content: center;
-    width: 100%;
   }
 }
 

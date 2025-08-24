@@ -29,7 +29,8 @@ export const propertyStore = create<PropertyStoreType>()(devtools((set) => ({
                 console.log(result.error);
                 return;
             }
-            set({ properties: result.data });            
+            
+            set({ properties: result.data });
 
         } catch (error) {
             console.log(error);
@@ -46,7 +47,7 @@ export const propertyStore = create<PropertyStoreType>()(devtools((set) => ({
                 console.error(result.error);
                 return;
             }
-            
+
             set({ myHouses: result.data })
 
         } catch (error) {
@@ -54,22 +55,32 @@ export const propertyStore = create<PropertyStoreType>()(devtools((set) => ({
         }
     },
     createPublication: async (data: PropertyFormData) => {
-        console.log(data);
-
         try {
-            await axios.post(`${baseURL}/property/create`, {
-                ...data,
-                price: Number(data.price),
-                bedroom: Number(data.bedrooms),
-                bathroom: Number(data.bathrooms),
-                parking: Number(data.parking)
-            }, {
-                withCredentials: true
+            const formData = new FormData();
+
+            formData.append("title", data.title);
+            formData.append("category", data.category);
+            formData.append("price", String(data.price));
+            formData.append("bedroom", String(data.bedrooms));
+            formData.append("bathroom", String(data.bathrooms));
+            formData.append("parking", String(data.parking));
+            formData.append("location", data.location);
+            formData.append("description", data.description);
+
+            if (data.image) {
+                formData.append("image", data.image);
+            }
+
+            await axios.post(`${baseURL}/property/create`, formData, {
+                withCredentials: true,
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
             });
 
             notifySucces("Publication created successfully");
         } catch (error) {
-            console.log(error);
+            console.error(error);
             notifyError("Error creating publication");
         }
     }

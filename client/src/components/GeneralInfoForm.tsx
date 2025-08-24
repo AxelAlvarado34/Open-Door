@@ -18,6 +18,7 @@ export default function GeneralInfoForm({ address, setAddress }: GeneralInfoForm
         register,
         handleSubmit,
         formState: { errors },
+        setValue,
         reset
 
     } = useForm<PropertyFormData>();
@@ -134,7 +135,15 @@ export default function GeneralInfoForm({ address, setAddress }: GeneralInfoForm
                         />
                     </div>
                 </div>
-
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                        if (e.target.files && e.target.files.length > 0) {
+                            setValue("image", e.target.files[0]); // 👈 aquí guardamos el File
+                        }
+                    }}
+                />
                 <button type="submit" className={style.submitButton}>Submit</button>
             </form>
         </div>

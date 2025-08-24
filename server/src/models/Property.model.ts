@@ -74,6 +74,12 @@ class Property extends Model {
 
     @BelongsTo(() => User)
     user: User;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: true
+    })
+    image: string;
 }
 
 export default Property;

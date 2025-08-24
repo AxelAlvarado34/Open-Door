@@ -8,7 +8,8 @@ export const PropertyFormDataSchema = z.object({
     parking: z.number(),
     bathrooms: z.number(),
     location: z.string(),
-    description: z.string()
+    description: z.string(),
+    image: z.any()
 })
 
 export const PropertySchema = z.object({
@@ -24,6 +25,7 @@ export const PropertySchema = z.object({
   userId: z.number(),
   createdAt: z.string(),
   updatedAt: z.string(),
+  image: z.string().url().optional(),
 });
 
 

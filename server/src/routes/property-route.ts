@@ -3,6 +3,7 @@ import { PropertyController } from '../controllers/Property-controller';
 import { handleErrors } from '../middleware/ErrorsRequest';
 import { body } from 'express-validator';
 import { checkAuth } from '../middleware/CheckAuth';
+import upload from '../middleware/upload';
 
 const routerProperty = Router();
 
@@ -13,6 +14,7 @@ routerProperty.get('/get-my-properties', checkAuth, PropertyController.getMyProp
 routerProperty.post(
   '/create',
   checkAuth,
+  upload.single("image"),
   // Validation
   body("title").notEmpty().withMessage("Title is required").isLength({ max: 100 }),
   body("description").notEmpty().withMessage("Description is required").isLength({ max: 500 }),
@@ -26,5 +28,7 @@ routerProperty.post(
   handleErrors,
   PropertyController.createProperty
 );
+
+routerProperty.delete('/delete-property/:id', checkAuth, PropertyController.deleteProperty)
 
 export default routerProperty;

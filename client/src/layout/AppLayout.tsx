@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { Bounce, ToastContainer } from "react-toastify";
 import style from '../styles/AppLayout.module.css'
-import Footer from "../components/Footer";
 
 export default function AppLayout() {
   return (
@@ -30,7 +29,6 @@ export default function AppLayout() {
         <Outlet />
       </section>
 
-      {/* <Footer/> */}
     </>
   )
 }

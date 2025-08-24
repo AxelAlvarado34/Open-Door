@@ -3,10 +3,21 @@
 .home_page {
     padding: 0 30px;
     font-family: 'Manrope', sans-serif;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.home_left{
+    width: 60%;
+}
+
+.home_right{
+    width: 30%;
 }
 
 .banner {
-    width: 60%;
+    width: 100%;
     height: 250px;
     display: flex;
     align-items: center;
@@ -45,7 +56,7 @@
 
 .double_home{
     display: flex;
-    width: 60%;
+    width: 100%;
     gap: 30px;
 }
 
@@ -95,8 +106,11 @@
 }
 
 .all_publications{
-    margin-bottom: 100px;
+    width: 100%;
+    margin: 100px 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     flex-wrap: wrap;
 }
@@ -109,9 +123,17 @@
     .banner_description{
         font-size: 13px;
     }
+
+    .home_create{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90%;
+    }
     
     .create_title{
-        font-size: 20px;
+        font-size: 18px;
     }
     .create_des{
         font-size: 13px;
@@ -155,6 +177,14 @@
 }
 
 @media (width <= 1040px){
+
+    .home_page{
+        gap: 20px;
+    }
+
+    .home_left{
+        width: 75%;
+    }
     .banner_title{
         font-size: 26px;
         line-height: 35px;
@@ -203,8 +233,19 @@
 }
 
 @media (width <= 900px){
+    .home_page{
+        flex-direction: column;
+    }
     .banner{
         width: 100%;
+    }
+    .home_left{
+        width: 90%;
+    }
+    .home_right{
+        justify-content: center;
+        align-items: center;
+        width: 90%;
     }
     .double_home{
         width: 100%;
@@ -214,7 +255,7 @@
 
 @media (width <= 600px){
     .home_page{
-        padding: 0 40px;
+        padding: 0 20px;
     }
     .banner{
         width: 100%;
