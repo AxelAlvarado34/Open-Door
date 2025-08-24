@@ -135,16 +135,23 @@ export default function GeneralInfoForm({ address, setAddress }: GeneralInfoForm
                         />
                     </div>
                 </div>
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => {
-                        if (e.target.files && e.target.files.length > 0) {
-                            setValue("image", e.target.files[0]);
-                        }
-                    }}
-                />
-                <button type="submit" className={style.submitButton}>Submit</button>
+                <div className={style.fileWrapper}>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="imageUpload"
+                        className={style.hiddenInput}
+                        onChange={(e) => {
+                            if (e.target.files && e.target.files.length > 0) {
+                                setValue("image", e.target.files[0]);
+                            }
+                        }}
+                    />
+                    <label htmlFor="imageUpload" className={style.imageButton}>
+                        Subir imagen
+                    </label>
+                </div>
+                <button type="submit" className={style.submitButton}>Publicate property</button>
             </form>
         </div>
     );
